@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is an AI-powered command-line agent built with TypeScript that leverages Claude AI (via OpenRouter) to execute file operations and shell commands. The agent can read files, write files, and execute bash commands based on natural language instructions.
+This is an AI-powered command-line agent built with Rust that leverages Claude AI (via OpenRouter) to execute file operations and shell commands. The agent can read files, write files, and execute bash commands based on natural language instructions.
 
 ## What It Does
 
@@ -53,7 +53,7 @@ The application normalizes tool calls from different AI providers:
 ### Usage
 
 ```bash
-npx ts-node app/main.ts -p "your instruction here"
+cargo run -- -p "your instruction here"
 ```
 
 **Environment Variables Required:**
@@ -64,16 +64,16 @@ npx ts-node app/main.ts -p "your instruction here"
 
 ```bash
 # Read a file
-npx ts-node app/main.ts -p "What's in package.json?"
+cargo run -- -p "What's in Cargo.toml?"
 
 # Create a file
-npx ts-node app/main.ts -p "Create a file called test.txt with the content 'Hello World'"
+cargo run -- -p "Create a file called test.txt with the content 'Hello World'"
 
 # Complex operation
-npx ts-node app/main.ts -p "Create a directory called 'logs' and write the current date to a file called 'logs/timestamp.txt'"
+cargo run -- -p "Create a directory called 'logs' and write the current date to a file called 'logs/timestamp.txt'"
 
 # Execute commands
-npx ts-node app/main.ts -p "List all TypeScript files in the current directory"
+cargo run -- -p "List all Rust files in the current directory"
 ```
 
 ## System Behavior
@@ -98,8 +98,10 @@ All errors are caught and printed to stderr with a non-zero exit code.
 
 ## Dependencies
 
-- **OpenAI SDK** - For API communication (works with OpenRouter)
-- **Node.js built-ins** - `child_process`, `fs`, `path`
+- **reqwest** - For HTTP API communication
+- **serde_json** - For JSON serialization/deserialization
+- **tokio** - For async runtime
+- **Standard library** - For file I/O and process execution
 
 ## Limitations
 
