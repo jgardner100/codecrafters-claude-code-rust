@@ -110,7 +110,7 @@ All errors are caught and printed to stderr with a non-zero exit code.
 - Requires valid OpenRouter API credentials
 - Claude Haiku model is used (balance of speed and capability)
 
-## Future Enhancements
+## Future Enhancements (Maybe)
 
 - Support for additional tools (network requests, database queries)
 - Configurable model selection
